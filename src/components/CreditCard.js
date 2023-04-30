@@ -1,4 +1,4 @@
-function CreditCard() {
+function CreditCard(props) {
   return (
     <div className="CreditCard">
       <svg
@@ -51,10 +51,19 @@ function CreditCard() {
         </g>
       </svg>
       <div className="content">
-        <div className="number">XXXX</div>
+        <div className="number">
+          <span>{props.numbers.num1}</span>
+          <span>{props.numbers.num2}</span>
+          <span>{props.numbers.num3}</span>
+          <span>{props.numbers.num4}</span>
+          </div>
         <div className="nameAndCvc">
-          <div className="name">XXXX</div>
-          <div className="cvc">XXXX</div>
+          <div className="name">
+            <span>WENDY WU</span>
+          </div>
+          <div className="cvc">
+            <span>09/20</span>
+          </div>
         </div>
       </div>
     </div>
