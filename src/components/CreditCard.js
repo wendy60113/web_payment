@@ -59,7 +59,7 @@ function CreditCard(props) {
           </div>
         <div className="nameAndCvc">
           <div className="name">
-            <span>WENDY WU</span>
+            <span>{props.CHName}</span>
           </div>
           <div className="cvc">
             <span>09/20</span>
