@@ -43,6 +43,19 @@ function Home() {
         break;
     }
   }
+  const [isFocused, setIsFocused] = useState(false);
+  const handleFocus =()=>{
+    setIsFocused(true)
+  }
+  const handleBlur=(el)=>{
+    for(let i=0;i<num.length;i++){
+      if(num[Number(el.target.id)].current.value!==''){
+        setIsFocused(true)
+      }else{
+        setIsFocused(false)
+      }
+    }
+  }
   return (
     <div>
       <div className="bg"></div>
@@ -64,11 +77,18 @@ function Home() {
             />
           </div>
           <div className="inputcomponent">
-            <input id="0" onChange={handleChange} value={numbersarray.num1} name="num1" ref={num[0]} maxLength='4'></input>
-            <input id="1" onChange={handleChange} value={numbersarray.num2} name="num2" ref={num[1]} maxLength='4'></input>
-            <input id="2" onChange={handleChange} value={numbersarray.num3} name="num3" ref={num[2]} maxLength='4'></input>
-            <input id="3" onChange={handleChange} value={numbersarray.num4} name="num4" ref={num[3]} maxLength='4'></input>
-            
+            <div className="form-floating cardInput" style={{display: 'flex'}}>
+              <input id="0" name="num1" className={`form-control ${isFocused ? 'autoFocus' : ''}`} placeholder="123" onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} value={numbersarray.num1} ref={num[0]} maxLength='4'/>
+              <input id="1" name="num2" className={`form-control ${isFocused ? 'autoFocus' : ''}`} placeholder="123" onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} value={numbersarray.num2} ref={num[1]} maxLength='4'/>
+              <input id="2" name="num3" className={`form-control ${isFocused ? 'autoFocus' : ''}`} placeholder="123" onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} value={numbersarray.num3} ref={num[2]} maxLength='4'/>
+              <input id="3" name="num4" className={`form-control ${isFocused ? 'autoFocus' : ''}`} placeholder="123" onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} value={numbersarray.num4} ref={num[3]} maxLength='4'/>
+
+              {/* <input id="0" onChange={handleChange} value={numbersarray.num1} name="num1" ref={num[0]} maxLength='4'></input>
+              <input id="1" onChange={handleChange} value={numbersarray.num2} name="num2" ref={num[1]} maxLength='4'></input>
+              <input id="2" onChange={handleChange} value={numbersarray.num3} name="num3" ref={num[2]} maxLength='4'></input>
+              <input id="3" onChange={handleChange} value={numbersarray.num4} name="num4" ref={num[3]} maxLength='4'></input> */}
+              <label htmlFor="floatingInput1">Number</label>
+            </div>          
           </div>
           <div className="inputcomponent multiComponent">
             <Input
