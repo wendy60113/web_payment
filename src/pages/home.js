@@ -56,6 +56,7 @@ function Home() {
       }
     }
   }
+  const [flipped, setFlipped] = useState(false);
   return (
     <div>
       <div className="bg"></div>
@@ -64,6 +65,10 @@ function Home() {
           <CreditCard 
             numbers={numbersarray}
             CHName={CHName}
+            Month={ExpMonth}
+            Year={ExpYear}
+            CVC={CVC}
+            flipped={flipped} 
           />
         </div>
         <div className="inputField">
@@ -74,14 +79,35 @@ function Home() {
               name={'CHName'}
               content={CHName}
               changeEvent={handleChangeInput}
+              focusEvent={() => setFlipped(false)}
             />
           </div>
           <div className="inputcomponent">
             <div className="form-floating cardInput" style={{display: 'flex'}}>
-              <input id="0" name="num1" className={`form-control ${isFocused ? 'autoFocus' : ''}`} placeholder="123" onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} value={numbersarray.num1} ref={num[0]} maxLength='4'/>
-              <input id="1" name="num2" className={`form-control ${isFocused ? 'autoFocus' : ''}`} placeholder="123" onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} value={numbersarray.num2} ref={num[1]} maxLength='4'/>
-              <input id="2" name="num3" className={`form-control ${isFocused ? 'autoFocus' : ''}`} placeholder="123" onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} value={numbersarray.num3} ref={num[2]} maxLength='4'/>
-              <input id="3" name="num4" className={`form-control ${isFocused ? 'autoFocus' : ''}`} placeholder="123" onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} value={numbersarray.num4} ref={num[3]} maxLength='4'/>
+              <input id="0" name="num1" className={`form-control ${isFocused ? 'autoFocus' : ''}`} placeholder="123" 
+                onFocus={() => {
+                  handleFocus();
+                  setFlipped(false);
+                }} 
+                onBlur={handleBlur} onChange={handleChange} value={numbersarray.num1} ref={num[0]} maxLength='4'/>
+              <input id="1" name="num2" className={`form-control ${isFocused ? 'autoFocus' : ''}`} placeholder="123" 
+                onFocus={() => {
+                  handleFocus();
+                  setFlipped(false);
+                }} 
+                onBlur={handleBlur} onChange={handleChange} value={numbersarray.num2} ref={num[1]} maxLength='4'/>
+              <input id="2" name="num3" className={`form-control ${isFocused ? 'autoFocus' : ''}`} placeholder="123" 
+                onFocus={() => {
+                  handleFocus();
+                  setFlipped(false);
+                }} 
+                onBlur={handleBlur} onChange={handleChange} value={numbersarray.num3} ref={num[2]} maxLength='4'/>
+              <input id="3" name="num4" className={`form-control ${isFocused ? 'autoFocus' : ''}`} placeholder="123" 
+                onFocus={() => {
+                  handleFocus();
+                  setFlipped(false);
+                }} 
+                onBlur={handleBlur} onChange={handleChange} value={numbersarray.num4} ref={num[3]} maxLength='4'/>
 
               {/* <input id="0" onChange={handleChange} value={numbersarray.num1} name="num1" ref={num[0]} maxLength='4'></input>
               <input id="1" onChange={handleChange} value={numbersarray.num2} name="num2" ref={num[1]} maxLength='4'></input>
@@ -96,12 +122,14 @@ function Home() {
               content={ExpMonth}
               name={'ExpMonth'}
               changeEvent={handleChangeInput}
+              focusEvent={() => setFlipped(false)}
             />
             <Input
               title={'Expiry Year'}
               content={ExpYear}
               name={'ExpYear'}
               changeEvent={handleChangeInput}
+              focusEvent={() => setFlipped(false)}
             />
           </div>
           <div className="inputcomponent multiComponent">
@@ -110,6 +138,7 @@ function Home() {
               name={'CVC'}
               content={CVC}
               changeEvent={handleChangeInput}
+              focusEvent={() => setFlipped(true)}
             />
           </div>
         </div>
