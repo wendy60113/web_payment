@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/web_payment/static/css/main.c1c8b9c4.css",
+    "main.js": "/web_payment/static/js/main.5112b485.js",
+    "static/js/787.4c20092a.chunk.js": "/web_payment/static/js/787.4c20092a.chunk.js",
+    "index.html": "/web_payment/index.html",
+    "main.c1c8b9c4.css.map": "/web_payment/static/css/main.c1c8b9c4.css.map",
+    "main.5112b485.js.map": "/web_payment/static/js/main.5112b485.js.map",
+    "787.4c20092a.chunk.js.map": "/web_payment/static/js/787.4c20092a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c1c8b9c4.css",
+    "static/js/main.5112b485.js"
+  ]
+}
